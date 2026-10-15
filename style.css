@@ -234,6 +234,38 @@ footer nav a:hover { color: var(--accent); }
 .letter ul { margin: 12px 0 0 20px; }
 .letter li { margin-top: 6px; }
 
+/* ---------- Появление секций при скролле ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
+
+/* ---------- Копирование email: подсказка ---------- */
+.contact-card { position: relative; }
+.copy-toast {
+  position: absolute;
+  top: -10px; right: 16px;
+  background: var(--dark);
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(0);
+  transition: opacity .25s ease, transform .25s ease;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.copy-toast.is-visible { opacity: 1; transform: translateY(-10px); }
+
 /* ---------- Телефон ---------- */
 @media (max-width: 820px) {
   body { font-size: 16px; }
