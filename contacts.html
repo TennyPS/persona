@@ -17,7 +17,7 @@
 
 <header class="site-header">
   <div class="bar">
-    <a class="brand" href="index.html">Татьяна Конова</a>
+    <a class="brand" href="index.html" aria-label="Татьяна Конова — на главную">ТК</a>
     <nav class="site-nav">
       <a href="index.html">Главная</a>
       <a href="about.html">Обо мне</a>
@@ -46,15 +46,29 @@
     </div>
 
     <div class="letter">
-      <h3>Как лучше написать</h3>
-      <p>Чтобы я могла сразу ответить по делу, коротко укажите в письме:</p>
-      <ul>
-        <li>компанию и сферу;</li>
-        <li>что сейчас не работает в продажах или управлении;</li>
-        <li>сколько человек в отделе продаж;</li>
-        <li>как вам удобнее связаться.</li>
-      </ul>
-      <a class="cta-btn" href="mailto:tvkonova@gmail.com?subject=%D0%97%D0%B0%D0%BF%D1%80%D0%BE%D1%81%20%D0%BD%D0%B0%20%D0%BA%D0%BE%D0%BD%D1%81%D1%83%D0%BB%D1%8C%D1%82%D0%B0%D1%86%D0%B8%D1%8E%20%D1%81%20%D1%81%D0%B0%D0%B9%D1%82%D0%B0&body=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%A2%D0%B0%D1%82%D1%8C%D1%8F%D0%BD%D0%B0!%0A%0A%D0%9A%D0%BE%D0%BC%D0%BF%D0%B0%D0%BD%D0%B8%D1%8F%20%D0%B8%20%D1%81%D1%84%D0%B5%D1%80%D0%B0%3A%20%0A%D0%A7%D1%82%D0%BE%20%D1%81%D0%B5%D0%B9%D1%87%D0%B0%D1%81%20%D0%BD%D0%B5%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B0%D0%B5%D1%82%20%D0%B2%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%D0%B0%D1%85%3A%20%0A%D0%A1%D0%BA%D0%BE%D0%BB%D1%8C%D0%BA%D0%BE%20%D1%87%D0%B5%D0%BB%D0%BE%D0%B2%D0%B5%D0%BA%20%D0%B2%20%D0%BE%D1%82%D0%B4%D0%B5%D0%BB%D0%B5%20%D0%BF%D1%80%D0%BE%D0%B4%D0%B0%D0%B6%3A%20%0A%D0%9A%D0%B0%D0%BA%20%D1%83%D0%B4%D0%BE%D0%B1%D0%BD%D0%B5%D0%B5%20%D1%81%D0%B2%D1%8F%D0%B7%D0%B0%D1%82%D1%8C%D1%81%D1%8F%3A%20">Написать по шаблону</a>
+      <h3>Написать мне</h3>
+      <p>Чтобы я могла сразу ответить по делу, коротко укажите компанию, что сейчас не работает в продажах и сколько человек в отделе продаж.</p>
+      <form class="lead-form" data-lead-form>
+        <!-- Ключ Web3Forms (публичный): получить на web3forms.com по email tvkonova@gmail.com -->
+        <input type="hidden" name="access_key" value="ВСТАВЬТЕ_КЛЮЧ_WEB3FORMS">
+        <input type="hidden" name="subject" value="Запрос с сайта: консультация">
+        <input type="hidden" name="from_name" value="Сайт ТК">
+        <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label>Как к вам обращаться
+          <input type="text" name="name" required autocomplete="name">
+        </label>
+        <label>Как с вами связаться (email, телефон или Telegram)
+          <input type="text" name="contact" required>
+        </label>
+        <label>Компания и что хотите улучшить
+          <textarea name="message" required placeholder="Например: производство, 12 менеджеров, продажи держатся на одном человеке"></textarea>
+        </label>
+        <button class="cta-btn" type="submit">Отправить</button>
+        <div class="form-status" role="status" aria-live="polite"></div>
+      </form>
+      <!-- TODO: когда будет ссылка на запись (Calendly / Google Calendar), добавить кнопку:
+      <p style="margin-top:20px;"><a class="cta-btn ghost" href="ССЫЛКА_НА_ЗАПИСЬ">Записаться на разговор</a></p>
+      -->
     </div>
   </div>
 </section>

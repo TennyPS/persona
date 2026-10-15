@@ -86,4 +86,40 @@
       setTimeout(function () { toast.remove(); }, 300);
     }, 1400);
   }
+
+  /* ---------- Форма обратной связи (Web3Forms) ---------- */
+  var form = document.querySelector("[data-lead-form]");
+  if (form) {
+    var status = form.querySelector(".form-status");
+    var button = form.querySelector("button[type=submit]");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var key = form.elements.access_key.value;
+      if (!key || key.indexOf("ВСТАВЬТЕ") === 0) {
+        setStatus("err", "Форма ещё не подключена. Напишите, пожалуйста, на tvkonova@gmail.com.");
+        return;
+      }
+      button.disabled = true;
+      setStatus("", "Отправляю…");
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(Object.fromEntries(new FormData(form)))
+      }).then(function (r) { return r.json(); }).then(function (data) {
+        if (data.success) {
+          form.reset();
+          setStatus("ok", "Спасибо! Сообщение отправлено, отвечу в ближайшее время.");
+        } else {
+          throw new Error(data.message || "error");
+        }
+      }).catch(function () {
+        setStatus("err", "Не получилось отправить. Напишите, пожалуйста, на tvkonova@gmail.com.");
+      }).then(function () { button.disabled = false; });
+    });
+
+    function setStatus(kind, text) {
+      status.className = "form-status" + (kind ? " " + kind : "");
+      status.textContent = text;
+    }
+  }
 })();
